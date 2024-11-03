@@ -10,6 +10,9 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int questionId;
+
+	private int questionNum;
+
 	private String questionText;
 
 	private String optionA;
@@ -18,9 +21,14 @@ public class Question {
 	private String optionD;
 	private String correctAnswer;
 
-	public Question(String question, String optionA2, String optionB2, String optionC2, String optionD2,
-			String answer) {
+	public Question() {
+
+	}
+
+	public Question(int questionNum, String question, String optionA2, String optionB2, String optionC2,
+			String optionD2, String answer) {
 		super();
+		this.questionNum = questionNum;
 		this.questionText = question;
 		this.optionA = optionA2;
 		this.optionB = optionB2;
@@ -35,6 +43,14 @@ public class Question {
 
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
+	}
+
+	public int getQuestionNum() {
+		return questionNum;
+	}
+
+	public void setQuestionNum(int questionNum) {
+		this.questionNum = questionNum;
 	}
 
 	public String getQuestionText() {
@@ -87,9 +103,9 @@ public class Question {
 
 	@Override
 	public String toString() {
-		return "Question [questionId=" + questionId + ", questionText=" + questionText + ", optionA=" + optionA
-				+ ", optionB=" + optionB + ", optionC=" + optionC + ", optionD=" + optionD + ", correctAnswer="
-				+ correctAnswer + "]";
+		return "Question [questionId=" + questionId + ", questionNum=" + questionNum + ", questionText=" + questionText
+				+ ", optionA=" + optionA + ", optionB=" + optionB + ", optionC=" + optionC + ", optionD=" + optionD
+				+ ", correctAnswer=" + correctAnswer + "]";
 	}
 
 }

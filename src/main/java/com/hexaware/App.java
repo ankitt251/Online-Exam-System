@@ -23,13 +23,12 @@ public class App {
 			System.out.println("3. Exit");
 			System.out.print("Enter your choice: ");
 			choice = sc.nextInt();
-			sc.nextLine(); // Consume newline left-over
+			sc.nextLine();
 			switch (choice) {
 			case 1:
 				userService.registerUser();
 				break;
 			case 2:
-				// Proceed to login and enter the user/admin menu based on role
 				userService.signIn();
 				break;
 			case 3:
@@ -55,7 +54,7 @@ public class App {
 			System.out.println("7. Logout");
 			System.out.print("Enter your choice: ");
 			choice = sc.nextInt();
-			sc.nextLine(); // Consume newline left-over
+			sc.nextLine();
 
 			switch (choice) {
 			case 1:
@@ -89,27 +88,32 @@ public class App {
 		int choice;
 		do {
 			System.out.println("User Menu:");
-			System.out.println("1. Update Profile");
-			System.out.println("2. Delete Account");
-			System.out.println("3. Logout");
+			System.out.println("1.Take Exam.");
+			System.out.println("2. Take Exam");
+			System.out.println("2. Update Profile");
+			System.out.println("3. Delete Account");
+			System.out.println("4. Logout");
 			System.out.print("Enter your choice: ");
 			choice = sc.nextInt();
-			sc.nextLine(); // Consume newline left-over
+			sc.nextLine();
 
 			switch (choice) {
 			case 1:
-				userService.updateUser();
+				queService.takeExam();
 				break;
 			case 2:
-				userService.removeUser();
+				userService.updateUser();
 				break;
 			case 3:
+				userService.removeUser();
+				break;
+			case 4:
 				System.out.println("Logging out...");
 				break;
 			default:
 				System.out.println("Invalid choice. Please try again.");
 			}
-		} while (choice != 3);
+		} while (choice != 4);
 	}
 
 }
